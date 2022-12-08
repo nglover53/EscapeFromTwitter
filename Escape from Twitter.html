@@ -224,81 +224,11 @@
 
         }
       </style>
-      <script role="script" id="twine-user-script" type="text/twine-javascript">
-        // a very simple passage transition animation that fades in the next passage
-        $(document).on('sm.passage.showing', function(event, passage) {
-         	$("tw-passage").hide().fadeIn(1000);
-          	console.log("passage name: " + passage.passage.name);
-        });
-
-
-        // creates a GE object which will be storing our karma data and relevant functions
-        window.GE = window.GE || {}
-
-
-        // a general "karma" counter that stores the karma of your actions
-        GE.karma = 0;
-
-        //this is just a debug running toolthat prints some text e
-        GE.runPrintStatement = function (e) {
-        	console.log("please lordy lord work: " + e);
-        }
-
-        //adds a num (pos or neg) to karma. call this function with:
-        // <% GE.addKarma(num) %> at the top of each relevant passage
-        GE.addKarma = function (num) {
-          	console.log("Old Karma: " + GE.karma);
-         	GE.karma = GE.karma + num;
-          	console.log("New Karma: " + GE.karma);
-        }
-
-        //calls the inverse of add karma
-        GE.subtractKarma = function (num) {
-        	 GE.addKarma(-1 * num);
-        }
-
-        // baseline value to compare against to check if we're at a positive or negative evaluation
-        GE.baseline = 0;
-
-        GE.negList = [
-          "You have displeased Emon with your actions",
-          "{Insert negative Emon statement here}",
-          "{Insert negative Emon statement here}",
-          "{Insert negative Emon statement here}"
-        ]
-
-        GE.posList = [
-          "You have pleased Emon with your actions",
-          "{Insert positive Emon statement here}",
-          "{Insert positive Emon statement here}",
-          "{Insert positive Emon statement here}"
-        ]
-
-        // will return a rand string from either the list of positives or negatives based on karma
-        GE.checkBaselineRand = function() {
-        	if (GE.karma > GE.baseline) {
-              return either(GE.posList);
-            } else {
-              return either(GE.negList);
-            }
-        }
-
-        // will return a custom negative or positive statment based on karm
-        GE.checkBaselineCustom = function(posStatement, negStatement) {
-        	if (GE.karma > GE.baseline) {
-              return either(posStatement);
-            } else {
-              return either(negStatement);
-            }
-        }
-
-
-        GE.moveToScene = function(sceneName) {
-        	setTimeout(function() {
-        		story.show("Welcome to Twitter");
-        	}, 25);
-        }
-      </script>
+      <script
+        role="script"
+        id="twine-user-script"
+        type="text/twine-javascript"
+      ></script>
       <tw-tag name="Twitter" color="blue"></tw-tag
       ><tw-tag name="Tweet" color="blue"></tw-tag
       ><tw-passagedata
@@ -314,7 +244,7 @@
         edge. Maybe something is wrong? It&#39;s still your first week. So it
         may take some time to settle in. ## [[I&#39;m ready to start my
         workday!]] &lt;!--Please note, the color for Twitter is from their
-        official RGB color code: R: 29, G:161, B: 242--&gt; </tw-passagedata
+        official RGB color code: R: 29, G:161, B: 242--&gt;</tw-passagedata
       ><tw-passagedata
         pid="2"
         name="I&#39;m ready to start my workday!"
@@ -349,8 +279,7 @@
         tags=""
         position="725,650"
         size="100,100"
-        >&lt;% GE.subtractKarma(1) %&gt; Rudy writes a few notes on his iPad and
-        skitters away. &lt;%=GE.checkBaseline() %&gt; [[Go back to
+        >Rudy writes a few notes on his iPad and skitters away. [[Go back to
         work.]]</tw-passagedata
       ><tw-passagedata
         pid="6"
@@ -393,19 +322,19 @@
         tags=""
         position="725,1275"
         size="100,100"
-        >Woops! You (text-colour:red)[wounded] emon&#39;s fragile Ego! You are
-        fired on the spot. (text-colour:#1da1f2)[Congratulations! You escaped
-        Twitter!]</tw-passagedata
+        >Woops! You (text-colour:red)[wounded] emon&#39;s fragile Ego! This will
+        have consequences [[Head to your desk]]</tw-passagedata
       ><tw-passagedata
         pid="11"
         name="Um... yeah!"
         tags=""
-        position="850,1275"
+        position="875,1250"
         size="100,100"
         >(text-colour:red)[Close call! ] But, Emon&#39;s humongous ego rendered
-        him incapable of deteting your apprehension! Emon: I hope you are ready
+        him incapable of detecting your apprehension! Emon: I hope you are ready
         to work harder than you have ever worked before. Together, we are going
-        to (text-colour:#1da1f2)[change the world. ] </tw-passagedata
+        to (text-colour:#1da1f2)[change the world. ] [[Head to your
+        desk]]</tw-passagedata
       ><tw-passagedata
         pid="12"
         name="Return to work."
@@ -413,18 +342,10 @@
         position="925,775"
         size="100,100"
         >&#39;That was weird,&#39; you think to yourself. Luckily, the end of
-        the day comes quickly and it&#39;s time to go home. [[Head home for the
-        day.]]</tw-passagedata
+        the day comes quickly and it&#39;s time to go home. [[Head home and get
+        some rest.]]</tw-passagedata
       ><tw-passagedata
         pid="13"
-        name="Head home for the day."
-        tags=""
-        position="925,900"
-        size="100,100"
-        >The Next Day: Your daily programming is interrupted by an email....
-        [[Check your email inbox.]]</tw-passagedata
-      ><tw-passagedata
-        pid="14"
         name="Check your email inbox."
         tags=""
         position="925,1025"
@@ -432,9 +353,10 @@
         >It&#39;s from Emon Lusk! Emon&#39;s Email: &quot;Hello valuable Team
         Member! I hope you are ready to work harder than you&#39;ve ever worked
         before! Together, we are going to (text-colour:#1da1f2)[change the
-        world].&quot; [[Close email and return to work.]]</tw-passagedata
+        world].&quot; Something in those lines of text make you feel like Emon
+        is thinking&quot; [[Close email and return to work.]]</tw-passagedata
       ><tw-passagedata
-        pid="15"
+        pid="14"
         name="Close email and return to work."
         tags=""
         position="1125,1025"
@@ -443,7 +365,7 @@
         [[You&#39;ll check it tomorrow. It&#39;s the end of the
         day.]]</tw-passagedata
       ><tw-passagedata
-        pid="16"
+        pid="15"
         name="See what it says."
         tags=""
         position="1125,1250"
@@ -455,7 +377,7 @@
         (text-colour:#1da1f2)[Congratulations! You escaped from
         Twitter!]</tw-passagedata
       ><tw-passagedata
-        pid="17"
+        pid="16"
         name="You&#39;ll check it tomorrow. It&#39;s the end of the day."
         tags=""
         position="1350,1000"
@@ -464,7 +386,7 @@
         [[Check your inbox?]] [[Head straight to your morning
         meeting?]]</tw-passagedata
       ><tw-passagedata
-        pid="18"
+        pid="17"
         name="Check your inbox?"
         tags=""
         position="1300,1250"
@@ -473,7 +395,7 @@
         unsent!.... No time to investigate. You&#39;re going to be late! [[Head
         straight to your morning meeting?]]</tw-passagedata
       ><tw-passagedata
-        pid="19"
+        pid="18"
         name="Head straight to your morning meeting?"
         tags=""
         position="1500,1150"
@@ -485,7 +407,7 @@
         something important? [[You&#39;re on the spot! Take a second to
         think!]]</tw-passagedata
       ><tw-passagedata
-        pid="20"
+        pid="19"
         name="You,re on the spot! Take a second to think!"
         tags=""
         position="1500,1275"
@@ -496,7 +418,7 @@
         he removes all loops from source code.]] [[This is too much pressure.
         Shrug and say nothing. Hope for the best!]] </tw-passagedata
       ><tw-passagedata
-        pid="21"
+        pid="20"
         name="Warn Emon that Twitter will crash if he removes all loops from source code."
         tags=""
         position="1700,1300"
@@ -506,7 +428,7 @@
         Jacket!] (text-colour:#1da1f2)[Congratulations! You escaped from
         Twitter.]</tw-passagedata
       ><tw-passagedata
-        pid="22"
+        pid="21"
         name="This is too much pressure.  Shrug and say nothing. Hope for the best!"
         tags=""
         position="1500,1400"
@@ -517,14 +439,14 @@
         rest of the meeting. You keep your job another day. [[Finish your work
         day. ]]</tw-passagedata
       ><tw-passagedata
-        pid="23"
+        pid="22"
         name="Finish your work day. "
         tags=""
         position="1500,1525"
         size="100,100"
         >[[Quitting time! Tomorrow will be better...]]</tw-passagedata
       ><tw-passagedata
-        pid="24"
+        pid="23"
         name="Quitting time!  Tomorrow will be better..."
         tags=""
         position="1500,1650"
@@ -532,7 +454,7 @@
         >The Next Day: Oh no! An email from emon. [[Open Emon&#39;s
         email.]]</tw-passagedata
       ><tw-passagedata
-        pid="25"
+        pid="24"
         name="Open Emon&#39;s email."
         tags=""
         position="1500,1775"
@@ -543,7 +465,7 @@
         Ignore Emon&#39;s email and quit.]] [[I need this job. The money is
         good. Tell Emon you&#39;re in.]]</tw-passagedata
       ><tw-passagedata
-        pid="26"
+        pid="25"
         name="I can&#39;t do this! Ignore Emon&#39;s email and quit."
         tags=""
         position="1700,1700"
@@ -555,7 +477,7 @@
         angry protesters! You join them. (text-colour:#1da1f2)[Congratulations!
         You escaped from Twitter!]</tw-passagedata
       ><tw-passagedata
-        pid="27"
+        pid="26"
         name="I need this job. The money is good. Tell Emon you&#39;re in."
         tags=""
         position="1700,1900"
@@ -564,7 +486,7 @@
         Cyré! I knew you wouldn&#39;t let me down! Come to my office ASAP! You
         must sign a new contract. [[Head to Emon&#39;s office.]]</tw-passagedata
       ><tw-passagedata
-        pid="28"
+        pid="27"
         name="Head to Emon&#39;s office."
         tags=""
         position="1900,1900"
@@ -575,7 +497,7 @@
         here! ]] [[Skim your contract briefly and sign it. What choice do you
         have.]]</tw-passagedata
       ><tw-passagedata
-        pid="29"
+        pid="28"
         name="What am I doing... Im out of here! "
         tags=""
         position="1900,2025"
@@ -588,14 +510,14 @@
         angry protesters! You join them. (text-colour:#1da1f2)[Congratulations!
         You escaped from Twitter!]</tw-passagedata
       ><tw-passagedata
-        pid="30"
+        pid="29"
         name="Skim your contract briefly and sign it. What choice do you have."
         tags=""
         position="2025,2025"
         size="100,100"
         >[[2 Years Later]]</tw-passagedata
       ><tw-passagedata
-        pid="31"
+        pid="30"
         name="2 Years Later"
         tags=""
         position="2025,2150"
@@ -607,27 +529,37 @@
         himself a genius. You can never escape. [[No time to slack. Back to
         work.]] [[Maybe I can still quit?]] </tw-passagedata
       ><tw-passagedata
-        pid="32"
+        pid="31"
         name="No time to slack. Back to work."
         tags=""
         position="2025,2275"
         size="100,100"
         >(bg:red)[Game Over]</tw-passagedata
       ><tw-passagedata
-        pid="33"
+        pid="32"
         name="Maybe I can still quit?"
         tags=""
         position="2150,2275"
         size="100,100"
         >Emon will never let you leave. (bg:red)[Game Over]</tw-passagedata
       ><tw-passagedata
-        pid="34"
+        pid="33"
         name="You&#39;re on the spot! Take a second to think!"
         tags=""
         position="1375,1400"
         size="100,100"
       ></tw-passagedata
-    ></tw-storydata>
+      ><tw-passagedata
+        pid="34"
+        name="Head to your desk"
+        tags=""
+        position="950,1500"
+        size="100,100"
+        >You sit at your desk pondering your actions and trying to get some
+        work. Suddenly, another email!! [[Check your email
+        inbox.]]</tw-passagedata
+      ></tw-storydata
+    >
     <script>
       (function () {
         function r(e, n, t) {
@@ -11528,11 +11460,9 @@
                             u > 1 && we(p),
                             u > 1 &&
                               xe(
-                                e
-                                  .slice(0, u - 1)
-                                  .concat({
-                                    value: " " === e[u - 2].type ? "*" : "",
-                                  })
+                                e.slice(0, u - 1).concat({
+                                  value: " " === e[u - 2].type ? "*" : "",
+                                })
                               ).replace(B, "$1"),
                             n,
                             u < i && Ee(e.slice(u, i)),
