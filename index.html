@@ -33,9 +33,9 @@ $(document).on('sm.passage.showing', function(event, passage) {
 });
 
 window.GE=window.GE || {}
-GE.testList=["test.png", "twt2.png", "twt3.png"];
-GE.posList=["test.png", "twt2.png", "twt3.png"];
-GE.negList=["test.png", "twt2.png", "twt3.png"];
+
+GE.posList=["eval1.png", "eval2.png", "eval3.png"];
+GE.negList=["eval4.png", "eval5.png", "eval6.png"];
 
 GE.generateRandImg = function(){
 	let image = document.createElement ("img");
@@ -47,11 +47,6 @@ GE.generateRandImg = function(){
 }
 
 GE.karma = 0;
-
-//this is just a debug running toolthat prints some text e
-GE.runPrintStatement = function (e) {
-  console.log("please lordy lord work: " + e);
-}
 
 //adds a num (pos or neg) to karma. call this function with:
 // <% GE.addKarma(num) %> at the top of each relevant passage
@@ -105,18 +100,19 @@ GE.showEval = function(){
 &lt;img src=&quot;10-1.png&quot; width=&quot;560&quot; height= &quot;200&quot;&gt;
 [[&lt;img class= &quot;choice&quot; src=&#39;9a.png&#39;  width=&#39;560&#39; height= &#39;200&#39;&gt;|Head to your desk]]</tw-passagedata><tw-passagedata pid="12" name="Check your email inbox." tags="" position="1075,1175" size="100,100">&lt;img src=&quot;12.png&quot; width=&quot;560&quot; height= &quot;200&quot;&gt;
 [[&lt;img class= &quot;choice&quot; src=&#39;12a.png&#39;  width=&#39;560&#39; height= &#39;200&#39;&gt;|Close email and return to work.]]
-&lt;% GE.showEval(); %&gt;</tw-passagedata><tw-passagedata pid="13" name="Close email and return to work." tags="" position="1250,1125" size="100,100">Later that Day: 
-
-Another Email from elon! 
-Come to the meeting 8 AM! NOW!
-[[Head straight to your morning meeting?]]</tw-passagedata><tw-passagedata pid="14" name="Head straight to your morning meeting?" tags="" position="1500,1150" size="100,100">The Conference Room: 
-
+&lt;% GE.showEval(); %&gt;</tw-passagedata><tw-passagedata pid="13" name="Close email and return to work." tags="" position="1250,1125" size="100,100">13
+&lt;img src=&quot;13.png&quot; width=&quot;560&quot; height= &quot;200&quot;&gt;
+[[&lt;img class= &quot;choice&quot; src=&#39;13a.png&#39;  width=&#39;560&#39; height= &#39;200&#39;&gt;|Head straight to your morning meeting?]]
+Later that Day: 
+Another Email from Emon! 
+&quot;Come to the meeting 8 AM! NOW!&quot;
+[[]]</tw-passagedata><tw-passagedata pid="14" name="Head straight to your morning meeting?" tags="" position="1500,1150" size="100,100">14The Conference Room: 
 Oh no... Emon looks really upset. 
 
 Emon: What are we even talking about! What is a &quot;for loop,&quot; We have to eliminate all
 kind of bloatware like this!  ... Oh! Cyré is here! These people are talking about &quot;for loops.&quot;  Do I need these for something important? 
 
-[[You&#39;re on the spot! Take a second to think!]]</tw-passagedata><tw-passagedata pid="15" name="You&#39;re on the spot! Take a second to think!" tags="" position="1500,1275" size="100,100">You know from your time at Georgia Tech that for-loops are a fundamental part of programming! It appears Emon has no idea what he is talking about. What do you do??
+[[You&#39;re on the spot! Take a second to think!]]</tw-passagedata><tw-passagedata pid="15" name="You&#39;re on the spot! Take a second to think!" tags="" position="1500,1275" size="100,100">15 You know from your time at Georgia Tech that for-loops are a fundamental part of programming! It appears Emon has no idea what he is talking about. What do you do??
 
 [[Warn Emon that Twitter will crash if he removes all loops from source code.]]
 
